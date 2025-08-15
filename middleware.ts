@@ -3,52 +3,52 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
+//   const { pathname } = request.nextUrl
 
-  // Public routes (no auth required)
-  const publicRoutes = ['/auth/login', '/auth/signup']
+//   // Public routes (no auth required)
+//   const publicRoutes = ['/auth/login', '/auth/signup']
 
-  // Skip middleware for public routes
-  if (publicRoutes.includes(pathname)) {
-    return NextResponse.next()
-  }
+//   // Skip middleware for public routes
+//   if (publicRoutes.includes(pathname)) {
+//     return NextResponse.next()
+//   }
 
-  const cookieStore = await cookies()
-  const cookieValue = cookieStore.get('user')?.value
-  const cookieObject = cookieValue ? JSON.parse(cookieValue) : null
-  console.log('cookie object is ')
-  console.log(cookieObject)
+//   const cookieStore = await cookies()
+//   const cookieValue = cookieStore.get('user')?.value
+//   const cookieObject = cookieValue ? JSON.parse(cookieValue) : null
+//   console.log('cookie object is ')
+//   console.log(cookieObject)
  
 
-  if (!cookieValue) {
-    return NextResponse.redirect(new URL('/auth/login', request.url))
-  }
+//   if (!cookieValue) {
+//     return NextResponse.redirect(new URL('/auth/login', request.url))
+//   }
 
-  if (cookieObject?.user?.email === 'admin@rosie.com') {
-  if (!pathname.startsWith('/admin')) {
-    return NextResponse.redirect(new URL('/admin', request.url))
-  }
-}
+//   if (cookieObject?.user?.email === 'admin@rosie.com') {
+//   if (!pathname.startsWith('/admin')) {
+//     return NextResponse.redirect(new URL('/admin', request.url))
+//   }
+// }
 
 
-  // Allow API routes without redirect loop
-  if (pathname.startsWith('/api')) {
+//   // Allow API routes without redirect loop
+//   if (pathname.startsWith('/api')) {
+//     return NextResponse.next()
+//   }
+
+//   // Allow main protected routes
+//   if (
+//     pathname === '/' ||
+//     pathname.startsWith('/admin') ||
+//     pathname.startsWith('/products') ||
+//     pathname.startsWith('/courses') ||
+//     pathname.startsWith('/chatbot')
+//   ) {
     return NextResponse.next()
-  }
-
-  // Allow main protected routes
-  if (
-    pathname === '/' ||
-    pathname.startsWith('/admin') ||
-    pathname.startsWith('/products') ||
-    pathname.startsWith('/courses') ||
-    pathname.startsWith('/chatbot')
-  ) {
-    return NextResponse.next()
-  }
+//   }
 
   // Default redirect
-  return NextResponse.redirect(new URL('/', request.url))
+  // return NextResponse.redirect(new URL('/', request.url))
 }
 
 export const config = {
