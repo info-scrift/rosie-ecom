@@ -5,8 +5,8 @@ import './globals.css'
 import { Navbar } from '@/components/navbar'
 
 export const metadata: Metadata = {
-  title: 'Rosie Medical Bot',
-  description: 'Chatbot to assist medical care',
+  title: 'Renalfusion',
+  description: 'Premium Healthcare Products & Courses and Chatbot to assist medical care',
 }
 
 export default function RootLayout({
