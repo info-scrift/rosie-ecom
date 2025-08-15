@@ -185,11 +185,24 @@ IMPORTANT RULES:
     }
 
     // Generate response (no stream)
-    const result = await generateText({
-      model: groq("llama3-70b-8192"),
-      system: systemPrompt,
-      messages: messages.slice(-3),
-    })
+
+    const cleanMessages = messages.slice(-3).map(m => ({
+  role: m.role,
+  content: m.content
+}));
+
+const result = await generateText({
+  model: groq("llama3-70b-8192"),
+  system: systemPrompt,
+  messages: cleanMessages
+});
+
+
+    // const result = await generateText({
+    //   model: groq("llama3-70b-8192"),
+    //   system: systemPrompt,
+    //   messages: messages.slice(-3),
+    // })
 
     const aiResponse = result.text
 
