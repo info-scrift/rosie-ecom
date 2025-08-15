@@ -70,7 +70,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <Button className="w-full text-sm" disabled={!product.in_stock} size="sm">
           <ListFilter className="w-4 h-4 mr-2" />
           View Product Details
-          {/* {product.in_stock ? "Add to Cart" : "Out of Stock"} */}
+          {/* {product.in_stock ? "Add To Cart" : "Out of Stock"} */}d
         </Button>
         </Link>
       </CardFooter>
