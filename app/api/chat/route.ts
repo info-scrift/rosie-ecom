@@ -106,7 +106,6 @@
 //   }
 // }
 
-
 import { createGroq } from "@ai-sdk/groq"
 import { generateText } from "ai"
 import { supabaseServer } from "@/lib/supabase-server"
@@ -164,10 +163,18 @@ IMPORTANT RULES:
       systemPrompt += `No matching products are currently available in our catalog for the described symptoms. You MUST inform the user about this, still provide helpful advice, and remind them to consult healthcare professionals.`
     }
 
-    const cleanMessages = messages.slice(-3).map((msg: any) => ({
-      role: msg.role,
-      content: msg.content,
-    }))
+    const cleanMessages = messages.slice(-3).map((msg: any) => {
+      // Only keep role and content, strip everything else including reasoning
+      const cleanMsg: any = {
+        role: msg.role,
+        content: msg.content,
+      }
+
+      // Ensure no other fields are present
+      return cleanMsg
+    })
+
+    console.log("[v0] Cleaned messages being sent to Groq:", JSON.stringify(cleanMessages, null, 2))
 
     // Generate response (no stream)
     const result = await generateText({
