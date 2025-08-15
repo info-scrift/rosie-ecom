@@ -14,7 +14,7 @@ import ChatInput from "@/components/input-chat"
 import Link from "next/link"
 
 function MedicalChatbotContent({ user }: { user: User }) {
-    const isAdmin=user.email=="admin@rosie.com" ? true : false
+    const isAdmin=user.email=="admin@renalfusion.com" ? true : false
 
   const [messages, setMessages] = useState<DBMessage[]>([])
   const [isLoading, setIsLoading] = useState(false)

@@ -24,7 +24,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/auth/login', request.url))
   }
 
-  if (cookieObject?.user?.email === 'admin@rosie.com') {
+  if (cookieObject?.user?.email === 'admin@renalfusion.com') {
   if (!pathname.startsWith('/admin')) {
     return NextResponse.redirect(new URL('/admin', request.url))
   }

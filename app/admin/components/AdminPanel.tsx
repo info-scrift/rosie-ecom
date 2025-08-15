@@ -335,7 +335,7 @@ function AdminEditor({ user }: { user: User }) {
 
   }
 
-  const isAdmin = user.email == "admin@rosie.com" ? true : false
+  const isAdmin = user.email == "admin@renalfusion.com" ? true : false
 
   const categories = useMemo(() => {
     const items = activeTab === "products" ? products : courses
