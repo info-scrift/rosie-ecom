@@ -106,13 +106,13 @@
 //   }
 // }
 
-import { createGroq } from "@ai-sdk/groq"
-import { generateText } from "ai"
+import Groq from "groq-sdk"
 import { supabaseServer } from "@/lib/supabase-server"
 import type { Product } from "@/lib/supabase"
 
 export const maxDuration = 30
-const groq = createGroq({
+
+const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 })
 
@@ -125,13 +125,10 @@ export async function POST(req: Request) {
     console.log("Messages (raw):", JSON.stringify(messages, null, 2))
 
     if (!messages || !Array.isArray(messages) || !userId) {
-      console.error("❌ Missing messages array or userId")
       return new Response("Messages array and userId are required", { status: 400 })
     }
 
     const latestMessage = messages[messages.length - 1]
-    console.log("Latest user message:", latestMessage)
-
     const userSymptoms = latestMessage.content.toLowerCase()
 
     // Fetch in-stock products
@@ -140,12 +137,7 @@ export async function POST(req: Request) {
       .select("*")
       .eq("in_stock", true)
 
-    if (error) {
-      console.error("❌ Supabase error fetching products:", error)
-      throw new Error("Failed to fetch products")
-    }
-
-    console.log(`Fetched ${products?.length || 0} in-stock products`)
+    if (error) throw new Error("Failed to fetch products")
 
     const matchingProducts =
       products?.filter((product: Product) =>
@@ -156,11 +148,6 @@ export async function POST(req: Request) {
             .some((word) => word.length > 3 && userSymptoms.includes(word))
         )
       ).slice(0, 5) || []
-
-    console.log(`Matching products count: ${matchingProducts.length}`)
-    if (matchingProducts.length > 0) {
-      console.log("Matching products:", matchingProducts.map(p => p.name))
-    }
 
     let systemPrompt = `You are a medical product recommendation assistant for a nursing supply company.
 
@@ -183,38 +170,27 @@ IMPORTANT RULES:
       systemPrompt += `No matching products are currently available in our catalog for the described symptoms. You MUST inform the user about this, still provide helpful advice, and remind them to consult healthcare professionals.`
     }
 
-    console.log("=== Last 3 Messages BEFORE Cleaning ===")
-    console.log(JSON.stringify(messages.slice(-3), null, 2))
-
-    // Clean messages
-    const cleanMessages = messages.slice(-3).map((msg: any) => ({
-      role: msg.role,
-      content: msg.content
+    // Clean last 3 messages
+    const cleanMessages = messages.slice(-3).map((m: any) => ({
+      role: m.role,
+      content: m.content,
     }))
 
     console.log("=== Cleaned Messages Sent to Groq ===")
     console.log(JSON.stringify(cleanMessages, null, 2))
 
-    // Check if any forbidden keys exist before sending
-    messages.slice(-3).forEach((m, idx) => {
-      if ("reasoning" in m) {
-        console.warn(`⚠ Found 'reasoning' in original messages[${idx}]`)
-      }
+    // Direct Groq API call
+    const completion = await groq.chat.completions.create({
+      model: "llama3-70b-8192",
+      messages: [
+        { role: "system", content: systemPrompt },
+        ...cleanMessages
+      ]
     })
 
-    // Generate response
-    console.log("=== Sending request to Groq ===")
-    const result = await generateText({
-      model: groq("llama3-70b-8192"),
-      system: systemPrompt,
-      messages: cleanMessages,
-    })
-
-    console.log("=== Groq Response ===")
-    console.log("Full result object:", result)
-    console.log("Response text:", result.text)
-
-    const aiResponse = result.text
+    const aiResponse = completion.choices[0]?.message?.content || ""
+    console.log("=== Groq AI Response ===")
+    console.log(aiResponse)
 
     const recommendedProductIds =
       matchingProducts.length > 0
@@ -223,9 +199,7 @@ IMPORTANT RULES:
             .map((product) => product.id)
         : []
 
-    console.log("Recommended Product IDs:", recommendedProductIds)
-
-    // Save user + assistant messages
+    // Save to Supabase
     await supabaseServer.from("messages").insert([
       {
         user_id: userId,
@@ -248,6 +222,7 @@ IMPORTANT RULES:
       }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     )
+
   } catch (error) {
     console.error("❌ Chat API Error:", error)
     return new Response("Internal Server Error", { status: 500 })
