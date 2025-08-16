@@ -46,6 +46,8 @@ import {
   Star,
 } from "lucide-react"
 import { AuthWrapper } from "@/components/auth-wrapper"
+import { deleteAllCookies } from "@/lib/utils"
+import { useRouter } from "next/navigation"
 
 interface Product {
   id?: string
@@ -322,9 +324,15 @@ function AdminEditor({ user }: { user: User }) {
   const [deleting, setDeleting] = useState(false)
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ""
 
+           const router = useRouter();
+
   const handleSignOut = async () => {
+    
     const { supabase } = await import("@/lib/supabase")
+        deleteAllCookies()
     await supabase.auth.signOut()
+        router.push("/auth/login")
+
   }
 
   const isAdmin = user.email == "admin@rosie.com" ? true : false
@@ -1016,6 +1024,7 @@ function AdminEditor({ user }: { user: User }) {
                           Cancel
                         </Button>
                         <Button
+                        onClick={doSave}
                           type="submit"
                           disabled={
                             uploading ||

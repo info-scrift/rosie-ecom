@@ -1,9 +1,10 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ShoppingCart, Check, Star } from "lucide-react"
+import { ShoppingCart, Check, Star, ListFilter } from "lucide-react"
 import Image from "next/image"
 import type { Product } from "@/lib/supabase"
+import Link from "next/link"
 
 interface ProductCardProps {
   product: Product
@@ -64,12 +65,15 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       </CardContent>
 
-      {/* <CardFooter className="pt-0">
+      <CardFooter className="pt-0">
+        <Link href={`/products/${product.id}`} >
         <Button className="w-full text-sm" disabled={!product.in_stock} size="sm">
-          <ShoppingCart className="w-4 h-4 mr-2" />
-          {product.in_stock ? "Add to Cart" : "Out of Stock"}
+          <ListFilter className="w-4 h-4 mr-2" />
+          View Product Details
+          {/* {product.in_stock ? "Add to Cart" : "Out of Stock"} */}
         </Button>
-      </CardFooter> */}
+        </Link>
+      </CardFooter>
     </Card>
   )
 }
