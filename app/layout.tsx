@@ -7,6 +7,9 @@ import { Navbar } from '@/components/navbar'
 export const metadata: Metadata = {
   title: 'Renalfusion',
   description: 'Premium Healthcare Products & Courses and Chatbot to assist medical care',
+  icons: {
+    icon: "/favicon.ico", 
+  },
 }
 
 export default function RootLayout({

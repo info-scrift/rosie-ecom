@@ -148,9 +148,9 @@ export default function ProductDetailPage() {
   // Mock additional images (in real app, these would come from the database)
   const productImages = [
     product.image_url || "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
+    // "/placeholder.svg?height=600&width=600",
+    // "/placeholder.svg?height=600&width=600",
+    // "/placeholder.svg?height=600&width=600",
   ]
 
   return (

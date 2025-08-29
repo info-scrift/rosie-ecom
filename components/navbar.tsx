@@ -25,14 +25,17 @@ import {
   LogOut,
   Menu,
   ShoppingBag,
+  Book,
 } from "lucide-react"
 import { deleteAllCookies } from "@/lib/utils"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/products", label: "Products", icon: Package },
   { href: "/courses", label: "Courses", icon: GraduationCap },
-  { href: "/chatbot", label: "Chatbot", icon: MessageCircle },
+  { href: "/books", label: "Book", icon: Book },
+  { href: "/chatbot", label: "Consultation bot", icon: MessageCircle },
 ]
 
 export function Navbar() {
@@ -58,11 +61,18 @@ export function Navbar() {
           <div className="flex h-18 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="p-2.5 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-xl shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
-                <ShoppingBag className="h-7 w-7 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-300">
-                Renalfusion
+          <div className="w-10 h-10 overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-105">
+  <Image
+    src="/images/logo.jpeg"
+    alt="Renalfusion Logo"
+    width={40}
+    height={40}
+    className="w-full h-full object-cover"
+  />
+</div>
+
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 via-blue-900 to-blue-900 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-300">
+                RenalFusion
               </span>
             </Link>
 
