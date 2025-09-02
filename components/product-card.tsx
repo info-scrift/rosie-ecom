@@ -14,7 +14,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const imageUrl = product.image_url || `/placeholder.svg?height=200&width=200&text=${encodeURIComponent(product.name)}`
 
   return (
-    <Card className="w-full h-full hover:shadow-lg transition-shadow duration-300 flex flex-col">
+    <Card className=" w-full h-full transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:border-2 hover:border-blue-200 hover:shadow-lg  flex flex-col">
       <CardHeader className="pb-3">
         <div className="relative w-full h-40 mb-3 rounded-lg overflow-hidden bg-gray-50">
           <Image

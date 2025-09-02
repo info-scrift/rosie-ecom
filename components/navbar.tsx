@@ -34,7 +34,7 @@ const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/products", label: "Products", icon: Package },
   { href: "/courses", label: "Courses", icon: GraduationCap },
-  { href: "/books", label: "Book", icon: Book },
+  { href: "/books", label: "Books", icon: Book },
   { href: "/chatbot", label: "Consultation bot", icon: MessageCircle },
 ]
 

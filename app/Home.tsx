@@ -22,10 +22,15 @@ import {
   Target,
   TrendingUp,
   Book,
+  Headphones,
+  Smile,
+  Hospital,
+  Plus,
+  Bot,
 } from "lucide-react"
 
 export default function HomePage() {
-  const heroImages = ["/images/banner_pic_two.jpeg"]
+  const heroImages = ["/images/home_page_banner.jpeg"]
 
   const proteinProductImages = [
     "/images/protein_pic_one.jpeg",
@@ -38,7 +43,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
+      <div className="relative h-[40vh] md:h-[60vh] lg:h-[65vh] overflow-hidden">
         {/* Background Image Slider */}
         <div className="absolute inset-0 z-0">
           <ImageSlider images={heroImages} className="h-full w-full" autoPlay={true} interval={5000} />
@@ -56,14 +61,13 @@ export default function HomePage() {
                 </div>
               </div> */}
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-                <span className="text-blue-400">Renal</span>Fusion
+                <span className="text-blue-400">Renal</span>Fusion Blend
               </h1>
               <p className="text-xl md:text-2xl mb-4 text-white/90 max-w-4xl mx-auto text-pretty">
-                Advanced Renal Care Products & Professional Education
+                Innovative Renal Care Solutions & Professional Education
               </p>
               <p className="text-lg mb-8 text-white/80 max-w-3xl mx-auto text-pretty">
-                Empowering healthcare professionals and patients with cutting-edge kidney health products, comprehensive
-                courses, and evidence-based treatment products.
+                Delivering next-generation kidney health products, comprehensive e-learning programs, and round-the-clock AI consultation support — empowering healthcare professionals and patients to achieve better outcomes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300">
                 <Link href="/products">
@@ -93,50 +97,56 @@ export default function HomePage() {
 
       {/* Stats Section */}
       <div className="py-16 bg-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-100 cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                  10,000+
-                </div>
-                <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
-                  Healthcare Professionals Trained
-                </div>
-              </CardContent>
-            </Card> */}
-            <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-200 cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                  50+
-                </div>
-                <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
-                  Medical Institutions
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-300 cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                  95%
-                </div>
-                <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
-                  Patient Satisfaction Rate
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-400 cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                  24/7
-                </div>
-                <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
-                  Clinical Support
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h2 className="text-3xl font-bold text-center">Our Impact</h2>
+    <p className="mb-10 text-xl text-center text-muted-foreground max-w-3xl mx-auto text-pretty">
+        Built on trust, care, and innovation.
+      </p>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {/* Medical Institutions */}
+    <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-200 cursor-pointer">
+      <CardContent className="p-8 text-center flex flex-col items-center">
+        <div className="mb-3 bg-blue-500/10 p-4 rounded-xl group-hover:bg-blue-500/20 group-hover:scale-110 transition-all duration-300">
+                    <Hospital className="h-8 w-8 text-blue-500" />
+                  </div>
+        <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
+          50+
         </div>
+        <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+          Partner Medical Institutions
+        </div>
+      </CardContent>
+    </Card>
+
+    {/* Patient Satisfaction */}
+    <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-300 cursor-pointer">
+      <CardContent className="p-8 text-center flex flex-col items-center">
+  <div className="mb-3 bg-blue-500/10 p-4 rounded-xl group-hover:bg-blue-500/20 group-hover:scale-110 transition-all duration-300">
+                    <Smile className="h-8 w-8 text-blue-500" />
+                  </div>        <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
+          95%
+        </div>
+        <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+          Patient Satisfaction Rate
+        </div>
+      </CardContent>
+    </Card>
+
+    {/* Clinical Support */}
+    <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 shadow-lg animate-slide-up animation-delay-400 cursor-pointer">
+      <CardContent className="p-8 text-center flex flex-col items-center">
+  <div className="mb-3 bg-blue-500/10 p-4 rounded-xl group-hover:bg-blue-500/20 group-hover:scale-110 transition-all duration-300">
+                    <Bot className="h-8 w-8 text-blue-500" />
+                  </div>        <div className="text-4xl font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors duration-300">
+          24/7
+        </div>
+        <div className="text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+          AI Consultation Bot Support
+        </div>
+      </CardContent>
+    </Card>
+  </div>
+</div>
       </div>
 
       {/* Protein Products Section */}
@@ -145,8 +155,7 @@ export default function HomePage() {
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold text-foreground mb-6 text-balance">Premium Protein Products</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Our flagship protein products designed specifically for renal patients - clinically proven and
-              nutritionally optimized
+              Specialized, clinically proven nutrition solutions tailored for renal patients — nutritionally optimized, safe, and highly effective.
             </p>
           </div>
 
@@ -168,12 +177,12 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                      Specialized Renal Nutrition
+                      Key Benefits:
                     </h3>
-                    <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
+                    {/* <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
                         Our protein products are meticulously formulated to meet the unique nutritional needs of renal patients,
                 providing essential amino acids while managing phosphorus and potassium levels.
-                    </p>
+                    </p> */}
                     <ul className="space-y-2 mb-6">
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
@@ -181,15 +190,15 @@ export default function HomePage() {
                       </li>
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        High Biological Value
+                        High biological value protein
                       </li>
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Clinically Tested
+                        Clinically tested for efficacy
                       </li>
                        <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Easy Absorption
+                        Easy absorption for patient comfort
                       </li>
                     </ul>
                     <Link href="/products">
@@ -298,10 +307,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold text-foreground mb-6 text-balance">
-              Why Healthcare Professionals Choose RenalFusion
+              Why Healthcare Professionals and patients Choose Renal Fusion Blend
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Comprehensive renal care products backed by clinical research and trusted by medical professionals
+              Comprehensive products backed by clinical research and trusted by medical professionals
               worldwide
             </p>
           </div>
@@ -316,8 +325,7 @@ export default function HomePage() {
                   Clinical Excellence
                 </h3>
                 <p className="text-muted-foreground group-hover:text-blue-500 text-lg leading-relaxed transition-colors duration-300">
-                  FDA-approved products with rigorous clinical testing and evidence-based protocols for optimal patient
-                  outcomes
+                  FDA-approved products, backed by rigorous research and evidence-based protocols.
                 </p>
               </CardContent>
             </Card>
@@ -342,10 +350,10 @@ export default function HomePage() {
                   <Activity className="h-12 w-12 text-blue-500" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                  24/7 Support
+                  24/7 Consultation Bot
                 </h3>
                 <p className="text-muted-foreground group-hover:text-blue-500 text-lg leading-relaxed transition-colors duration-300">
-                  Round-the-clock clinical support and consultation services for healthcare professionals and patients
+                  AI-powered support and guidance available anytime for both professionals and patients.
                 </p>
               </CardContent>
             </Card>
@@ -358,9 +366,9 @@ export default function HomePage() {
       <div className="py-20 bg-gradient-to-br from-blue-50 to-blue-100/50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-16 animate-fade-in">
-      <h2 className="text-4xl font-bold text-foreground mb-6 text-balance">Renal Book Collection</h2>
+      <h2 className="text-4xl font-bold text-foreground mb-6 text-balance">Book Collection</h2>
       <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-        A curated selection of professional and patient-friendly books focused on renal health, treatment strategies, and lifestyle guidance.
+        A curated selection of general medical resources — from nephrology and cardiology to lifestyle medicine — authored by leading healthcare experts.
       </p>
     </div>
 
@@ -382,27 +390,27 @@ export default function HomePage() {
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                Renal Book Resources
+                Highlights:
               </h3>
-              <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
+              {/* <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
                 Explore our collection of books authored by experts in nephrology, offering both clinical insights and practical guidance for patients and professionals alike.
-              </p>
+              </p> */}
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                   <CheckCircle className="h-4 w-4 text-blue-500" />
-                  Expert-written content
+                  Expert-written and peer-reviewed content
                 </li>
                 <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                   <CheckCircle className="h-4 w-4 text-blue-500" />
-                  Covers clinical and patient education
+                  Covers clinical knowledge + patient education
                 </li>
                 <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                   <CheckCircle className="h-4 w-4 text-blue-500" />
-                  Easy to understand formats
+                  Easy-to-understand language and practical guidance
                 </li>
                 <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                   <CheckCircle className="h-4 w-4 text-blue-500" />
-                  Available in digital and print
+                  Available in both print and digital
                 </li>
               </ul>
               <Link href="/books">
@@ -423,10 +431,10 @@ export default function HomePage() {
       <div className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-foreground mb-6 text-balance">Comprehensive Renal Care Products</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+            <h2 className="text-4xl font-bold text-foreground mb-6 text-balance">Comprehensive Medical Supply Products</h2>
+            {/* <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               From diagnostic tools to treatment protocols, we provide everything needed for exceptional renal care
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -438,25 +446,28 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                      Healthcare Products
+                      Healthcare Solutions We Provide:
                     </h3>
-                    <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
-                      Advanced diagnostic equipment, treatment devices, and pharmaceutical products for comprehensive
-                      renal care
-                    </p>
+                    {/* <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
+                      Daily life healthcare and wellbeing 
+                    </p> */}
                     <ul className="space-y-2 mb-6">
-                      <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+                         <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Dialysis Equipment & Supplies
+                      Daily life healthcare and wellbeing 
                       </li>
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Diagnostic Instruments
+                        Diagnostic instruments
                       </li>
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+                        <CheckCircle className="h-4 w-4 text-blue-500" />
+                        Pharmaceutical and nutritional products
+                      </li>
+                      {/* <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
                         Pharmaceutical Products
-                      </li>
+                      </li> */}
                     </ul>
                     <Link href="/products">
                       <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 gap-2 transition-all duration-300 transform">
@@ -476,24 +487,31 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                      Professional Courses
+                      Professional Courses (Digital E-Learning)
                     </h3>
-                    <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
-                      Accredited training programs for healthcare professionals, from basic nephrology to advanced
-                      procedures
-                    </p>
+                    {/* <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
+                     E-Learning Dialysis Online Course
+                    </p> */}
                     <ul className="space-y-2 mb-6">
-                      <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Nephrology Certification
+                         E-Learning Dialysis Online Course
                       </li>
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Dialysis Training Programs
+                        Advanced Dialysis Techniques
                       </li>
                       <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                         <CheckCircle className="h-4 w-4 text-blue-500" />
-                        Continuing Education Credits
+                        Skills Competency Assessment
+                      </li>
+                      <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+                        <CheckCircle className="h-4 w-4 text-blue-500" />
+                      Pharmacology in Dialysis
+                      </li>
+                        <li className="flex items-center gap-2 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+                        <CheckCircle className="h-4 w-4 text-blue-500" />
+                     Complications in Dialysis Treatment
                       </li>
                     </ul>
                     <Link href="/courses">
@@ -533,8 +551,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
-                  "RenalFusion's training programs have significantly improved our team's capabilities. The clinical
-                  outcomes speak for themselves."
+                  "Renal Fusion Blend’s e-learning programs have transformed the way our team delivers care. Truly outstanding."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-100 p-2 rounded-full">
@@ -542,7 +559,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="font-semibold text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                      Dr. Sarah Johnson
+                      — Dr. Sarah Johnson
                     </div>
                     <div className="text-sm text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
                       Chief of Nephrology, Metro Hospital
@@ -560,8 +577,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
-                  "The quality of RenalFusion's products is exceptional. Our patients have seen remarkable improvements
-                  in their treatment outcomes."
+                  "The protein products are of the highest quality. Our patients show noticeable improvements in treatment outcomes."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-100 p-2 rounded-full">
@@ -587,8 +603,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-muted-foreground group-hover:text-blue-500 mb-6 leading-relaxed transition-colors duration-300">
-                  "Outstanding support and education. RenalFusion has become an integral part of our professional
-                  development program."
+                  "The 24/7 consultation bot is a game changer — immediate support when we need it most."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-100 p-2 rounded-full">
@@ -613,10 +628,9 @@ export default function HomePage() {
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-balance">Ready to Transform Renal Care?</h2>
+            <h2 className="text-4xl font-bold mb-6 text-balance">Ready to Elevate Renal Care?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto text-pretty">
-              Join thousands of healthcare professionals who trust RenalFusion for their renal care needs. Start your
-              journey towards better patient outcomes today.
+             Join thousands of professionals who rely on Renal Fusion Blend for advanced medical products, education, and digital support.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300">
               <Link href="/products">

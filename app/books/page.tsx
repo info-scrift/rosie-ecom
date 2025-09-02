@@ -257,42 +257,52 @@ export default function CoursesPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-     <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 animate-pulse"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-3 mb-6 animate-fade-in-up">
-              <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:rotate-12">
-                <BookOpen className="h-8 w-8" />
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
-                Online Books
-              </h1>
-              <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:-rotate-12">
-                <Award className="h-8 w-8 text-white" />
-              </div>
-            </div>
-            <p className="text-xl text-indigo-100 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
-              Discover a curated selection of books on renal health, clinical care, and patient education
-            </p>
-            <div className="flex items-center justify-center gap-6 mt-8 animate-fade-in-up animation-delay-400">
-  <div className="flex items-center gap-2 text-indigo-100 hover:text-white transition-colors duration-300 cursor-pointer group">
-    <BookOpen className="h-5 w-5 fill-current group-hover:scale-110 transition-transform duration-300" />
-    <span className="text-sm font-medium">Curated Library</span>
-  </div>
-  <div className="flex items-center gap-2 text-indigo-100 hover:text-white transition-colors duration-300 cursor-pointer group">
-    <Star className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-    <span className="text-sm font-medium">Top Rated Reads</span>
-  </div>
-  <div className="flex items-center gap-2 text-indigo-100 hover:text-white transition-colors duration-300 cursor-pointer group">
-    <Award className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-    <span className="text-sm font-medium">Expert Authors</span>
-  </div>
-</div>
+     <div className="relative lg:h-[65vh] lg:flex lg:items-center overflow-hidden text-white">
+  {/* Background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/images/books_banner.jpeg')" }} // replace with your image path
+  ></div>
 
-          </div>
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 bg-black/40"></div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="text-center">
+      <div className="flex items-center justify-center gap-3 mb-6 animate-fade-in-up">
+        <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:rotate-12">
+          <BookOpen className="h-8 w-8" />
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+          Our Books
+        </h1>
+        <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:-rotate-12">
+          <Award className="h-8 w-8 text-white" />
         </div>
       </div>
+
+      <p className="text-xl text-indigo-100 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
+        Discover a curated selection of books on renal health, clinical care, and patient education
+      </p>
+
+      <div className="flex items-center justify-center gap-6 mt-8 animate-fade-in-up animation-delay-400">
+        <div className="flex items-center gap-2 text-indigo-100 hover:text-white transition-colors duration-300 cursor-pointer group">
+          <BookOpen className="h-5 w-5 fill-current group-hover:scale-110 transition-transform duration-300" />
+          <span className="text-sm font-medium">Curated Library</span>
+        </div>
+        <div className="flex items-center gap-2 text-indigo-100 hover:text-white transition-colors duration-300 cursor-pointer group">
+          <Star className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+          <span className="text-sm font-medium">Top Rated Reads</span>
+        </div>
+        <div className="flex items-center gap-2 text-indigo-100 hover:text-white transition-colors duration-300 cursor-pointer group">
+          <Award className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+          <span className="text-sm font-medium">Expert Authors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">

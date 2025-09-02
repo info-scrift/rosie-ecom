@@ -30,7 +30,8 @@ html {
         `}</style>
       </head>
  <body>
-<Navbar />        <main>{children}</main>
+<Navbar />      
+  <main>{children}</main>
       </body>    </html>
   )
 }

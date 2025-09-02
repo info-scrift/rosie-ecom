@@ -189,49 +189,57 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+    <div className="relative lg:h-[65vh] lg:flex lg:items-center overflow-hidden text-white">
+  {/* Background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/images/product_page_banner.jpeg')" }}
+  ></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-4 mb-8 animate-fade-in">
-              <div className="p-4 bg-white/15 rounded-2xl backdrop-blur-sm border border-white/20 shadow-xl hover:scale-110 transition-all duration-300 hover:bg-white/20">
-                <ShoppingBag className="h-10 w-10 drop-shadow-sm" />
-              </div>
-              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent drop-shadow-sm">
-                Our Products
-              </h1>
-              <div className="p-4 bg-white/15 rounded-2xl backdrop-blur-sm border border-white/20 shadow-xl hover:scale-110 transition-all duration-300 hover:bg-white/20">
-                <Package className="h-10 w-10 drop-shadow-sm" />
-              </div>
-            </div>
-            <p className="text-xl text-blue-50 max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-sm">
-              Discover our comprehensive range of high-quality healthcare products designed to meet your needs with
-              excellence and care
-            </p>
-            <div className="flex items-center justify-center gap-8 flex-wrap">
-              {[
-                { icon: Star, text: "Premium Quality", delay: "0ms" },
-                { icon: TrendingUp, text: "Fast Delivery", delay: "100ms" },
-                { icon: Package, text: "Secure Packaging", delay: "200ms" },
-              ].map(({ icon: Icon, text, delay }, index) => (
-                <div
-                  key={text}
-                  className="flex items-center gap-3 text-blue-50 group hover:text-white transition-all duration-300 hover:scale-105"
-                  style={{ animationDelay: delay }}
-                >
-                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-all duration-300">
-                    <Icon className="h-5 w-5 fill-current drop-shadow-sm" />
-                  </div>
-                  <span className="text-sm font-medium drop-shadow-sm">{text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+  {/* Overlay gradients for readability */}
+  <div className="absolute inset-0 bg-black/40"></div>
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="text-center">
+      <div className="flex items-center justify-center gap-4 mb-8 animate-fade-in">
+        <div className="p-4 bg-white/15 rounded-2xl backdrop-blur-sm border border-white/20 shadow-xl hover:scale-110 transition-all duration-300 hover:bg-white/20">
+          <ShoppingBag className="h-10 w-10 drop-shadow-sm" />
+        </div>
+        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent drop-shadow-sm">
+          Our Products
+        </h1>
+        <div className="p-4 bg-white/15 rounded-2xl backdrop-blur-sm border border-white/20 shadow-xl hover:scale-110 transition-all duration-300 hover:bg-white/20">
+          <Package className="h-10 w-10 drop-shadow-sm" />
         </div>
       </div>
+      <p className="text-xl text-blue-50 max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-sm">
+        Discover our comprehensive range of high-quality healthcare products designed to meet your needs with
+        excellence and care
+      </p>
+      <div className="flex items-center justify-center gap-8 flex-wrap">
+        {[
+          { icon: Star, text: "Premium Quality", delay: "0ms" },
+          { icon: TrendingUp, text: "Fast Delivery", delay: "100ms" },
+          { icon: Package, text: "Secure Packaging", delay: "200ms" },
+        ].map(({ icon: Icon, text, delay }) => (
+          <div
+            key={text}
+            className="flex items-center gap-3 text-blue-50 group hover:text-white transition-all duration-300 hover:scale-105"
+            style={{ animationDelay: delay }}
+          >
+            <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-all duration-300">
+              <Icon className="h-5 w-5 fill-current drop-shadow-sm" />
+            </div>
+            <span className="text-sm font-medium drop-shadow-sm">{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 -mt-8 relative z-10">
